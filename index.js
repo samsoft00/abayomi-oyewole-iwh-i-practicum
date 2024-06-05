@@ -40,8 +40,6 @@ app.get('/update-cobj', async (req, res) => {
 
 // * Code for Route 3 goes here
 app.post('/update-cobj', async (req, res) => {
-    console.log(req.body)
-    // type_of_dog,dog_name,bio,bio,age
     const update = {
         properties: {
             "dog_name": req.body.name,
@@ -51,19 +49,19 @@ app.post('/update-cobj', async (req, res) => {
         }
     }
 
-    // const email = req.query.email;
-    // const updateContact = `https://api.hubapi.com/crm/v3/objects/dogs/${email}?idProperty=email`;
-    // const headers = {
-    //     Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-    //     'Content-Type': 'application/json'
-    // };
+    const email = req.query.email;
+    const updateDog = `https://api.hubapi.com/crm/v3/objects/dogs`;
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    };
 
-    // try { 
-    //     await axios.patch(updateContact, update, { headers } );
-    //     res.redirect('back');
-    // } catch(err) {
-    //     console.error(err);
-    // }
+    try { 
+        await axios.post(updateDog, update, { headers } );
+        res.redirect('back');
+    } catch(err) {
+        console.error(err);
+    }
 
 });
 
