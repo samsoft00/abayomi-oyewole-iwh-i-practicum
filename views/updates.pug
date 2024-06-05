@@ -9,4 +9,21 @@ html
     body
         .container
             a(href='http://localhost:3000') Return to the homepage
+            form(action="/update" method="POST")
+                .mb-3
+                label.form-label(for="dogName") Dog Name
+                input.form-control(type="text" id="dogName" placeholder="Bingo")
+                
+                .mb-3
+                label.form-label(for="typeOfBreeds") Type Of Dog (Breeds)
+                input.form-control(type="text" id="typeOfBreeds" placeholder="German Shepherd")
+
+                .mb-3
+                label.form-label(for="dogAge") Dog Age
+                input.form-control(type="number" id="dogAge" placeholder="24")                
+                
+                .mb-3
+                label.form-label(for="dogBio") Dog Bio
+                textarea.form-control(id="dogBio")
+            button.btn.btn-primary(type="submit") Submit
 
